@@ -1,0 +1,105 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Phone, MessageCircle, MapPin } from "lucide-react";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-800">
+      {/* Header */}
+      <header className="bg-blue-700 text-white p-6 shadow-md">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <h1 className="text-2xl font-bold">Fluxpoint Desentupidora</h1>
+          <Button className="bg-green-500 hover:bg-green-600 flex items-center">
+            <MessageCircle className="mr-2 w-5 h-5" /> WhatsApp
+          </Button>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="bg-blue-100 py-20 text-center">
+        <h2 className="text-4xl font-bold mb-4">Soluções Rápidas e Eficientes em Desentupimento</h2>
+        <p className="text-lg mb-6">Atendimento 24h em toda a região de São Paulo</p>
+        <Button className="bg-blue-700 hover:bg-blue-800 text-lg px-6 py-3">
+          Solicitar Orçamento
+        </Button>
+      </section>
+
+      {/* Services Section */}
+      <section className="max-w-6xl mx-auto py-16 px-4">
+        <h3 className="text-3xl font-bold text-center mb-10">Nossos Serviços</h3>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { title: "Desentupimento de Pia", desc: "Rápido e sem sujeira" },
+            { title: "Desentupimento de Ralo", desc: "Atendimento 24h" },
+            { title: "Desentupimento de Esgoto", desc: "Equipamentos modernos" },
+            { title: "Limpeza de Fossa", desc: "Serviço completo" },
+            { title: "Caixa de Gordura", desc: "Manutenção preventiva" },
+            { title: "Rede Pluvial", desc: "Desobstrução segura" },
+          ].map((service, i) => (
+            <Card key={i} className="shadow-md rounded-2xl">
+              <CardContent className="p-6 text-center">
+                <h4 className="text-xl font-semibold mb-2">{service.title}</h4>
+                <p>{service.desc}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="bg-gray-100 py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-3xl font-bold mb-6">Sobre Nós</h3>
+          <p className="text-lg">
+            A <strong>Fluxpoint Desentupidora</strong> atua há mais de 10 anos no mercado,
+            oferecendo serviços de qualidade com equipamentos de última geração
+            e profissionais altamente capacitados.
+          </p>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="max-w-6xl mx-auto py-16 px-4">
+        <h3 className="text-3xl font-bold text-center mb-10">O que nossos clientes dizem</h3>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { name: "João S.", text: "Atendimento rápido e muito eficiente!" },
+            { name: "Maria P.", text: "Resolveram meu problema sem sujeira. Recomendo!" },
+            { name: "Carlos L.", text: "Equipe profissional e preço justo." },
+          ].map((test, i) => (
+            <Card key={i} className="shadow-md rounded-2xl">
+              <CardContent className="p-6 text-center">
+                <p className="italic mb-4">“{test.text}”</p>
+                <h4 className="font-bold">- {test.name}</h4>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="bg-blue-700 text-white py-16 px-4">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h3 className="text-3xl font-bold mb-4">Entre em Contato</h3>
+            <p className="mb-4 flex items-center"><Phone className="mr-2" /> (11) 97790-3641</p>
+            <p className="mb-4 flex items-center"><MessageCircle className="mr-2" /> WhatsApp Atendimento 24h</p>
+            <p className="flex items-center"><MapPin className="mr-2" /> São Paulo - SP</p>
+          </div>
+          <form className="bg-white text-gray-800 p-6 rounded-2xl shadow-md">
+            <h4 className="text-xl font-semibold mb-4">Solicite um Orçamento</h4>
+            <input type="text" placeholder="Nome" className="w-full mb-3 p-2 border rounded" />
+            <input type="email" placeholder="E-mail" className="w-full mb-3 p-2 border rounded" />
+            <textarea placeholder="Mensagem" rows="4" className="w-full mb-3 p-2 border rounded"></textarea>
+            <Button className="w-full bg-blue-700 hover:bg-blue-800">Enviar</Button>
+          </form>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white text-center py-6 mt-10">
+        <p>© 2025 Fluxpoint Desentupidora - Todos os direitos reservados</p>
+      </footer>
+    </div>
+  );
+}
